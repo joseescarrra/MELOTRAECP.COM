@@ -1,0 +1,232 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="es">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>Me Lo Trae CP</title>\
+    <link rel="stylesheet" href="calculator-styles.css">\
+</head>\
+<body>\
+<header>\
+  <img src="https://melotraecp.com/wp-content/uploads/2025/01/Logo-CP-PNG-Base-oscuras-222.png" alt="MelotraeCP Logo" class="logo-img">\
+  <nav>\
+    <div class="menu-item"><a href="#">Inicio</a></div>\
+    <div class="menu-item"><a href="#">Servicios</a></div>\
+    <div class="menu-item"><a href="#">Tarifas</a></div>\
+    <div class="menu-item"><a href="#">Prealerta</a></div>\
+    <div class="menu-item"><a href="#">Contacto</a></div>\
+  </nav>\
+</header>\
+<main>\
+  <section class="background-modern">\
+    <h1>Crea tu cuenta CP<br>en USA o China para<br>comprar online y recibir directo en Venezuela</h1>\
+    <p>Olv\'eddate de las complicaciones: te damos una direcci\'f3n f\'edsica en USA o China para tus compras. Nosotros nos encargamos del resto.</p>\
+    <button class="btn" onclick="document.getElementById('preguntaRegistro').style.display='block'; this.style.display='none';">Crear cuenta</button>\
+\
+    <div id="preguntaRegistro" style="display:none; margin-top: 3rem;">\
+      <p>\'bfEst\'e1s actualmente en Venezuela?</p>\
+      <div style="display: flex; gap: 1rem; justify-content: center;">\
+        <button class="btn" onclick="abrirPopup()">S\'ed</button>\
+        <button class="btn" onclick="abrirPopup()">No</button>\
+      </div>\
+    </div>\
+  </section>\
+\
+  <section class="calculadora-section">\
+    <h2>Vista previa de costos de env\'edo<br>con CP desde EE.\uc0\u8239 UU. y China</h2>\
+    <button class="btn" onclick="abrirCalculadora()">Calcula tu env\'edo</button>\
+  </section>\
+\
+  <section class="section">\
+    <h2>\'bfC\'f3mo funciona?</h2>\
+    <div class="steps">\
+      <div class="step">\
+        <h3><span>1</span> Haz tus compras</h3>\
+        <p>En p\'e1ginas como Amazon, Alibaba, Best Buy y otras tiendas comunes.</p>\
+      </div>\
+      <div class="step">\
+        <h3><span>2</span> Recibimos tu mercanc\'eda</h3>\
+        <p>En nuestros almacenes en USA o China.</p>\
+      </div>\
+      <div class="step">\
+        <h3><span>3</span> Entregamos en Venezuela</h3>\
+        <p>Seg\'fan la modalidad seleccionada (a\'e9rea o mar\'edtima).</p>\
+      </div>\
+    </div>\
+  </section>\
+\
+  <!-- Popup de Registro -->\
+  <div id="popupRegistro" style="display:none;">\
+    <div>\
+      <img src="https://melotraecp.com/wp-content/uploads/2025/01/Logo-CP-PNG-Base-oscuras-222.png" alt="MelotraeCP Logo" style="height: 40px; width: auto; display: block; margin: 0 auto 1.5rem;">\
+      <button onclick="cerrarPopup()" class="close-btn">\'d7</button>\
+      <h2>Registro para Venezuela</h2>\
+      <form id="registroForm" onsubmit="validarFormulario(event)">\
+        <div class="form-group">\
+          <label for="nombre">Nombre</label>\
+          <input type="text" id="nombre" placeholder="Nombre" required class="campo">\
+          <span id="nombreError" class="error"></span>\
+        </div>\
+        <div class="form-group">\
+          <label for="apellido">Apellido</label>\
+          <input type="text" id="apellido" placeholder="Apellido" required class="campo">\
+          <span id="apellidoError" class="error"></span>\
+        </div>\
+        <div class="form-group">\
+          <label for="estado">Estado</label>\
+          <select id="estado" required onchange="actualizarCiudades()" class="campo">\
+            <option value="" disabled selected hidden>Selecciona un estado</option>\
+          </select>\
+          <span id="estadoError" class="error"></span>\
+        </div>\
+        <div class="form-group">\
+          <label for="ciudadRegistro">Ciudad</label>\
+          <select id="ciudadRegistro" required onchange="verificarCaracas()" class="campo">\
+            <option value="" disabled selected hidden>Primero elige un estado</option>\
+          </select>\
+          <span id="ciudadError" class="error"></span>\
+        </div>\
+        <div id="retiroOpcional" style="display:none;" class="form-group">\
+          <label for="retirar">\'bfDeseas retirar en nuestra oficina de Caracas?</label>\
+          <select id="retirar" class="campo" onchange="rellenarDireccionDesdeOficina()">\
+            <option value="">Selecciona una opci\'f3n</option>\
+            <option value="oficina">Retiro en Oficina de Caracas</option>\
+            <option value="otra">Otra direcci\'f3n</option>\
+          </select>\
+        </div>\
+        <div class="form-group">\
+          <label for="direccion">Direcci\'f3n</label>\
+          <input type="text" id="direccion" placeholder="Direcci\'f3n" required class="campo">\
+          <span id="direccionError" class="error"></span>\
+        </div>\
+        <div class="form-group">\
+          <label>Tel\'e9fono</label>\
+          <div style="display:flex; gap:0.5rem; align-items:center;">\
+            <span style="color:var(--soft); font-size:1rem;">+58</span>\
+            <input type="text" placeholder="414" maxlength="3" required class="campo" style="width:80px;">\
+            <input type="text" placeholder="1234567" maxlength="7" required class="campo" style="flex:1;">\
+          </div>\
+        </div>\
+        <div id="opcionalContainer" class="form-group">\
+          <button type="button" onclick="mostrarTelefonoOpcional()" >\'bfTienes otro n\'famero de respaldo?</button>\
+        </div>\
+        <div id="telefonoOpcional" style="display:none;" class="form-group">\
+          <label>Tel\'e9fono Opcional</label>\
+          <div style="display:flex; gap:0.5rem; align-items:center;">\
+            <span style="color:var(--soft); font-size:1rem;">+58</span>\
+            <input type="text" placeholder="414" maxlength="3" class="campo" style="width:80px;">\
+            <input type="text" placeholder="1234567" maxlength="7" class="campo" style="flex:1;">\
+          </div>\
+          <button type="button" onclick="ocultarTelefonoOpcional()">Quitar n\'famero adicional</button>\
+        </div>\
+        <div class="form-group">\
+          <label for="email">Correo Electr\'f3nico</label>\
+          <input type="email" id="email" placeholder="Correo Electr\'f3nico" required class="campo">\
+          <span id="emailError" class="error"></span>\
+        </div>\
+        <div class="checkbox-group">\
+          <input type="checkbox" id="acepto" onchange="habilitarEnvio()">\
+          <label for="acepto">\
+            He le\'eddo y acepto los <a href="#" onclick="abrirModal(event)" style="color:var(--accent); text-decoration:underline;">T\'e9rminos y Condiciones</a>.\
+          </label>\
+        </div>\
+        <button id="botonEnviar" type="submit" disabled>Crear cuenta</button>\
+        <button type="button" onclick="cerrarPopup()" class="btn-back">Cancelar</button>\
+      </form>\
+    </div>\
+  </div>\
+\
+  <!-- Popup de Calculadora -->\
+  <div id="calculadoraPopup" style="display:none;">\
+    <div class="modal">\
+      <img src="https://melotraecp.com/wp-content/uploads/2025/01/Logo-CP-PNG-Base-oscuras-222.png" alt="MelotraeCP Logo" class="logo" style="max-width: 180px; margin-bottom: 1rem;">\
+      <button onclick="cerrarCalculadora()" class="close-btn">\'d7</button>\
+      <div class="progress-container">\
+        <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>\
+        <span class="progress-text">Paso 1 de 4</span>\
+      </div>\
+\
+      <h2 id="modalTitle">Calcula tu env\'edo</h2>\
+\
+      <div id="paso1" class="step active">\
+        <p>\'bfDesde d\'f3nde sale tu env\'edo?</p>\
+        <button class="btn-option" data-origen="China">China</button>\
+        <button class="btn-option" data-origen="USA">USA</button>\
+      </div>\
+\
+      <div id="paso2" class="step">\
+        <p>\'bfC\'f3mo deseas enviar tu paquete?</p>\
+        <button class="btn-option" data-tipo="A\'e9reo">A\'e9reo</button>\
+        <button class="btn-option" data-tipo="Mar\'edtimo">Mar\'edtimo</button>\
+        <button class="btn-back" onclick="mostrarPaso('paso1')">\uc0\u8592  Volver</button>\
+      </div>\
+\
+      <div id="pasoCiudad" class="step">\
+        <p>Selecciona tu ciudad de destino</p>\
+        <div class="form-group">\
+          <label for="ciudadCalc" class="sr-only">Ciudad de destino</label>\
+          <select id="ciudadCalc">\
+            <option value="" disabled selected>Selecciona una ciudad</option>\
+          </select>\
+        </div>\
+        <button class="btn" onclick="continuarCiudad()">Continuar</button>\
+        <button class="btn-back" onclick="mostrarPaso('paso2')">\uc0\u8592  Volver</button>\
+        <span id="formError" class="error"></span>\
+        <p id="noDisponible" style="display: none;"></p>\
+      </div>\
+\
+      <div id="pasoFormulario" class="step">\
+        <form id="shippingForm" onsubmit="calcularCosto(event)">\
+          <div class="form-group">\
+            <label for="largo">Largo (pulgadas)</label>\
+            <input type="number" id="largo" min="0.1" step="0.1" required>\
+            <span id="largoError" class="error"></span>\
+          </div>\
+\
+          <div class="form-group">\
+            <label for="ancho">Ancho (pulgadas)</label>\
+            <input type="number" id="ancho" min="0.1" step="0.1" required>\
+            <span id="anchoError" class="error"></span>\
+          </div>\
+\
+          <div class="form-group">\
+            <label for="alto">Alto (pulgadas)</label>\
+            <input type="number" id="alto" min="0.1" step="0.1" required>\
+            <span id="altoError" class="error"></span>\
+          </div>\
+\
+          <div class="form-group">\
+            <label for="peso">Peso en libras (solo a\'e9reo)</label>\
+            <input type="number" id="peso" min="0" step="0.1">\
+            <span id="pesoError" class="error"></span>\
+          </div>\
+\
+          <button type="submit" class="btn">Calcular costo</button>\
+          <span id="formError" class="error"></span>\
+        </form>\
+\
+        <div id="resultado"></div>\
+\
+        <div class="disclaimer">\
+          *Estimado basado en la informaci\'f3n proporcionada. Cualquier costo adicional relacionado con aranceles, aduanas, seguro por el tipo de mercanc\'eda podr\'eda variar. Para m\'e1s informaci\'f3n, comun\'edquese con <a href="https://melotraecp.com">melotraecp.com</a>.\
+        </div>\
+\
+        <button class="btn-back" onclick="mostrarPaso('pasoCiudad')">\uc0\u8592  Volver</button>\
+      </div>\
+    </div>\
+  </div>\
+</main>\
+<footer>\
+  \'a9 2025 MelotraeCP \'97 Todos los derechos reservados. Sitio oficial: <a href="https://melotraecp.com" target="_blank" style="color:#888; text-decoration: none;">melotraecp.com</a>\
+</footer>\
+\
+<script src="calculator-script.js"></script>\
+</body>\
+</html>}

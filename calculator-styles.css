@@ -1,0 +1,455 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 :root \{\
+  --accent: #facc15;\
+  --bg: #0d0d0d;\
+  --fg: #ffffff;\
+  --soft: #999;\
+  --panel: #1a1a1a;\
+  --error: #ff4d4d;\
+  --hover: #2a2a2a;\
+\}\
+* \{ margin: 0; padding: 0; box-sizing: border-box; \}\
+body \{\
+  background-color: var(--bg);\
+  color: var(--fg);\
+  font-family: 'Inter', sans-serif;\
+  line-height: 1.7;\
+  background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.015), transparent 70%);\
+\}\
+header \{\
+  position: sticky;\
+  top: 0;\
+  z-index: 100;\
+  background-color: rgba(0, 0, 0, 0.6);\
+  backdrop-filter: blur(14px);\
+  display: flex;\
+  justify-content: space-between;\
+  align-items: center;\
+  padding: 1.2rem 3rem;\
+  border-bottom: 1px solid #1c1c1c;\
+\}\
+.logo-img \{\
+  height: 40px;\
+  width: auto;\
+\}\
+nav \{\
+  display: flex;\
+  gap: 2rem;\
+\}\
+.menu-item a \{\
+  text-decoration: none;\
+  color: var(--soft);\
+  font-weight: 500;\
+  font-size: 1rem;\
+  padding: 0.5rem;\
+  display: inline-block;\
+  transition: color 0.3s ease;\
+\}\
+.menu-item a:hover \{\
+  color: var(--fg);\
+\}\
+.background-modern \{\
+  background-color: var(--bg);\
+  padding: 6rem 2rem 2rem;\
+  display: flex;\
+  flex-direction: column;\
+  align-items: center;\
+  text-align: center;\
+\}\
+.background-modern h1 \{\
+  font-size: 3.5rem;\
+  font-weight: 600;\
+  letter-spacing: -0.05em;\
+  line-height: 1.1;\
+  max-width: 800px;\
+  margin-bottom: 1.5rem;\
+\}\
+.btn \{\
+  background-color: var(--accent);\
+  color: #000;\
+  padding: 1rem 3rem;\
+  border-radius: 30px;\
+  font-weight: 600;\
+  font-size: 1.2rem;\
+  border: none;\
+  cursor: pointer;\
+  transition: all 0.3s ease;\
+  margin: 1rem 0;\
+  min-width: 300px;\
+\}\
+.btn:hover \{\
+  background-color: #ffe956;\
+  transform: scale(1.04);\
+\}\
+.calculadora-section \{\
+  padding: 2rem 2rem 5rem;\
+  display: flex;\
+  flex-direction: column;\
+  align-items: center;\
+  text-align: center;\
+  border-top: 1px solid #1c1c1c;\
+  margin-top: 2rem;\
+\}\
+.calculadora-section h2 \{\
+  font-size: 3.5rem;\
+  font-weight: 600;\
+  letter-spacing: -0.05em;\
+  line-height: 1.1;\
+  max-width: 800px;\
+  margin-bottom: 1.5rem;\
+\}\
+.section \{\
+  background-color: var(--panel);\
+  padding: 5rem 2rem;\
+  text-align: center;\
+\}\
+.section h2 \{\
+  font-size: 2.2rem;\
+  margin-bottom: 3rem;\
+  font-weight: 600;\
+  letter-spacing: -0.3px;\
+\}\
+.steps \{\
+  display: grid;\
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));\
+  gap: 2.5rem;\
+\}\
+.step \{\
+  background-color: #111;\
+  padding: 2.2rem;\
+  border-radius: 20px;\
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);\
+  transition: transform 0.3s ease, box-shadow 0.3s ease;\
+\}\
+.step:hover \{\
+  transform: translateY(-6px);\
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);\
+\}\
+.step h3 \{\
+  font-size: 1.25rem;\
+  margin-bottom: 0.75rem;\
+  display: flex;\
+  align-items: center;\
+  gap: 0.6rem;\
+  font-weight: 600;\
+\}\
+.step h3 span \{\
+  font-size: 1.3rem;\
+  background: var(--accent);\
+  color: #000;\
+  width: 32px;\
+  height: 32px;\
+  display: inline-flex;\
+  align-items: center;\
+  justify-content: center;\
+  border-radius: 50%;\
+  font-weight: bold;\
+\}\
+.step p \{\
+  font-size: 0.95rem;\
+  color: var(--soft);\
+\}\
+footer \{\
+  background-color: #0d0d0d;\
+  text-align: center;\
+  padding: 2rem 1rem;\
+  font-size: 0.75rem;\
+  color: #666;\
+\}\
+@keyframes fadeInUp \{\
+  0% \{opacity: 0; transform: translateY(40px);\}\
+  100% \{opacity: 1; transform: translateY(0);\}\
+\}\
+\
+.campo \{\
+  background-color: #111;\
+  color: var(--fg);\
+  padding: 0.8rem;\
+  border-radius: 10px;\
+  font-size: 1rem;\
+  border: none;\
+  transition: all 0.3s ease;\
+  appearance: none;\
+  width: 100%;\
+\}\
+.campo:focus \{\
+  outline: none;\
+  border: 2px solid var(--accent);\
+  background-color: var(--hover);\
+\}\
+select.campo option \{\
+  color: var(--soft);\
+  background: var(--panel);\
+\}\
+select.campo:valid \{\
+  color: var(--fg);\
+\}\
+#direccion \{\
+  color: var(--fg) !important;\
+\}\
+.error \{\
+  color: var(--error);\
+  font-size: 0.8rem;\
+  text-align: left;\
+  display: block;\
+  margin-top: 0.3rem;\
+\}\
+#preguntaRegistro p \{\
+  color: var(--fg);\
+  font-size: 1.1rem;\
+  margin-bottom: 1rem;\
+  font-weight: 500;\
+\}\
+#popupRegistro \{\
+  display: none;\
+  position: fixed;\
+  top: 0;\
+  left: 0;\
+  width: 100vw;\
+  height: 100vh;\
+  background: rgba(0, 0, 0, 0.8);\
+  z-index: 1000;\
+  justify-content: center;\
+  align-items: center;\
+  padding: 1rem;\
+  overflow: auto;\
+\}\
+#popupRegistro > div \{\
+  background: var(--panel);\
+  padding: 2.5rem 2rem;\
+  max-width: 600px;\
+  width: 100%;\
+  border-radius: 20px;\
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);\
+  color: var(--fg);\
+  position: relative;\
+  transition: all 0.4s ease;\
+  animation: fadeInUp 0.4s ease;\
+\}\
+#opcionalContainer button \{\
+  background: none;\
+  border: none;\
+  color: var(--accent);\
+  font-size: 0.95rem;\
+  text-align: left;\
+  cursor: pointer;\
+  padding: 0;\
+\}\
+#telefonoOpcional \{\
+  display: none;\
+  flex-direction: column;\
+  gap: 0.5rem;\
+\}\
+#telefonoOpcional button \{\
+  background: none;\
+  border: none;\
+  color: var(--soft);\
+  font-size: 0.9rem;\
+  cursor: pointer;\
+\}\
+#acepto + label \{\
+  color: var(--fg);\
+  font-size: 0.95rem;\
+\}\
+.checkbox-group \{\
+  display: flex;\
+  align-items: flex-start;\
+  gap: 0.5rem;\
+  margin-bottom: 1rem;\
+  flex-wrap: nowrap;\
+\}\
+.checkbox-group label \{\
+  margin: 0;\
+  line-height: 1.2;\
+\}\
+.checkbox-group input[type="checkbox"] \{\
+  margin: 0;\
+  min-width: 16px;\
+  min-height: 16px;\
+\}\
+#botonEnviar \{\
+  background-color: var(--accent);\
+  color: #000;\
+  padding: 0.8rem 2rem;\
+  border-radius: 30px;\
+  font-weight: 600;\
+  font-size: 1rem;\
+  border: none;\
+  cursor: pointer;\
+  transition: all 0.3s ease;\
+\}\
+#botonEnviar:disabled \{\
+  background-color: #444;\
+  color: #aaa;\
+  cursor: not-allowed;\
+\}\
+#botonEnviar:hover:not(:disabled) \{\
+  background-color: #ffe956;\
+  transform: scale(1.04);\
+\}\
+#calculadoraPopup \{\
+  display: none;\
+  position: fixed;\
+  top: 0;\
+  left: 0;\
+  width: 100vw;\
+  height: 100vh;\
+  background: rgba(0, 0, 0, 0.8);\
+  z-index: 1000;\
+  justify-content: center;\
+  align-items: center;\
+  padding: 1rem;\
+  overflow: auto;\
+\}\
+#calculadoraPopup .modal \{\
+  background: var(--panel);\
+  padding: 2rem;\
+  border-radius: 20px;\
+  width: 90%;\
+  max-width: 500px;\
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);\
+  text-align: center;\
+\}\
+.progress-container \{\
+  width: 100%;\
+  background: #222;\
+  border-radius: 10px;\
+  margin-bottom: 1.5rem;\
+  height: 8px;\
+  overflow: hidden;\
+\}\
+.progress-bar \{\
+  height: 100%;\
+  background: var(--accent);\
+  border-radius: 10px;\
+  transition: width 0.3s ease;\
+\}\
+.progress-text \{\
+  position: absolute;\
+  top: -1.5rem;\
+  right: 0;\
+  font-size: 0.8rem;\
+  color: var(--soft);\
+\}\
+.step \{\
+  display: none;\
+\}\
+.step.active \{\
+  display: block;\
+\}\
+.btn-option \{\
+  background: transparent;\
+  border: 2px solid var(--accent);\
+  color: var(--accent);\
+  padding: 0.8rem 1.5rem;\
+  border-radius: 30px;\
+  font-weight: 600;\
+  font-size: 1rem;\
+  margin: 0.5rem;\
+  transition: background 0.2s;\
+\}\
+.btn-option:hover \{\
+  background: var(--accent);\
+  color: #000;\
+\}\
+.btn-back \{\
+  background: none;\
+  border: none;\
+  color: var(--soft);\
+  text-decoration: underline;\
+  cursor: pointer;\
+  margin-top: 1rem;\
+  font-size: 0.9rem;\
+\}\
+.close-btn \{\
+  background: none;\
+  border: none;\
+  color: var(--soft);\
+  font-size: 1.5rem;\
+  cursor: pointer;\
+  position: absolute;\
+  top: 10px;\
+  right: 15px;\
+\}\
+.form-group \{\
+  margin-bottom: 1rem;\
+  text-align: left;\
+\}\
+label \{\
+  display: block;\
+  text-align: left;\
+  margin-bottom: 0.3rem;\
+  font-size: 0.9rem;\
+\}\
+input, select \{\
+  width: 100%;\
+  padding: 0.8rem;\
+  border-radius: 10px;\
+  border: none;\
+  background: #111;\
+  color: var(--fg);\
+  font-size: 1rem;\
+\}\
+input:invalid, select:invalid \{\
+  border: 2px solid var(--error);\
+\}\
+select \{\
+  appearance: none;\
+  -webkit-appearance: none;\
+  -moz-appearance: none;\
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23fff" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');\
+  background-repeat: no-repeat;\
+  background-position: right 12px center;\
+\}\
+#resultado div \{\
+  color: var(--accent);\
+  text-align: left;\
+  margin-top: 1rem;\
+  font-weight: 600;\
+\}\
+#resultado small \{\
+  color: var(--soft);\
+  display: block;\
+  text-align: left;\
+  margin-top: 0.5rem;\
+\}\
+.cost \{\
+  font-size: 1.2em;\
+  font-weight: bold;\
+  color: var(--fg);\
+\}\
+.disclaimer \{\
+  font-size: 0.9rem;\
+  color: var(--soft);\
+  font-style: italic;\
+  margin-top: 1rem;\
+  text-align: center;\
+\}\
+.disclaimer a \{\
+  color: var(--accent);\
+  text-decoration: none;\
+\}\
+.disclaimer a:hover \{\
+  text-decoration: underline;\
+\}\
+.sr-only \{\
+  position: absolute;\
+  width: 1px;\
+  height: 1px;\
+  padding: 0;\
+  margin: -1px;\
+  overflow: hidden;\
+  clip: rect(0, 0, 0, 0);\
+  border: 0;\
+\}\
+#noDisponible \{\
+  color: var(--error);\
+  margin-top: 1rem;\
+  font-size: 0.9rem;\
+\}}
